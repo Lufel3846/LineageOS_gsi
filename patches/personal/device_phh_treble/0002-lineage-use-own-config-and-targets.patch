@@ -55,8 +55,7 @@ index 172bb01..c09703b 100644
 +# APN
 +PRODUCT_PACKAGES += apns-conf.xml
 +
-+#Oplus fingerprint
-+$(call soong_config_set,surfaceflinger,udfps_lib,//hardware/oplus:libudfps_extension.oplus)
+
 diff --git a/lineage_arm64_bgN4.mk b/lineage_arm64_bgN4.mk
 new file mode 100644
 index 0000000..20e52c5
