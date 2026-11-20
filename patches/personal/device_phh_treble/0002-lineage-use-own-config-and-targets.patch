@@ -1,16 +1,16 @@
-From f82de96bc7595d3ca0bead19e7bf905dd3baa527 Mon Sep 17 00:00:00 2001
+From c815b99494b33a27a08e434fe4cab251e592e22f Mon Sep 17 00:00:00 2001
 From: MisterZtr <andey2004586@gmail.com>
 Date: Fri, 5 Jun 2026 10:00:00 +0300
 Subject: [PATCH 02/10] lineage: use own config and targets
 
 ---
  AndroidProducts.mk    | 11 +++++++++++
- lineage.mk            | 16 +++++++++++++++-
+ lineage.mk            | 13 ++++++++++++-
  lineage_arm64_bgN4.mk | 20 ++++++++++++++++++++
  lineage_arm64_bgNE.mk | 22 ++++++++++++++++++++++
  lineage_arm64_bvN4.mk | 20 ++++++++++++++++++++
  lineage_arm64_bvNE.mk | 22 ++++++++++++++++++++++
- 6 files changed, 110 insertions(+), 1 deletion(-)
+ 6 files changed, 107 insertions(+), 1 deletion(-)
  create mode 100644 AndroidProducts.mk
  create mode 100644 lineage_arm64_bgN4.mk
  create mode 100644 lineage_arm64_bgNE.mk
@@ -35,10 +35,10 @@ index 0000000..0a439c3
 +    $(LOCAL_DIR)/lineage_arm64_bvN4.mk \
 +    $(LOCAL_DIR)/lineage_arm64_bvNE.mk
 diff --git a/lineage.mk b/lineage.mk
-index 172bb01..c09703b 100644
+index 172bb01..c4a7190 100644
 --- a/lineage.mk
 +++ b/lineage.mk
-@@ -1,3 +1,17 @@
+@@ -1,3 +1,14 @@
  $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 +$(call inherit-product, vendor/lineage/config/BoardConfigSoong.mk)
 +$(call inherit-product, vendor/lineage/config/BoardConfigLineage.mk)
@@ -54,9 +54,6 @@ index 172bb01..c09703b 100644
 +
 +# APN
 +PRODUCT_PACKAGES += apns-conf.xml
-+
-+#Oplus fingerprint
-+$(call soong_config_set,surfaceflinger,udfps_lib,//hardware/oplus:libudfps_extension.oplus)
 diff --git a/lineage_arm64_bgN4.mk b/lineage_arm64_bgN4.mk
 new file mode 100644
 index 0000000..20e52c5
@@ -166,5 +163,5 @@ index 0000000..9b454c3
 +BOARD_EROFS_COMPRESSOR := lz4hc,9
 +TARGET_PRODUCT_PROP += device/phh/treble/product.prop
 -- 
-2.54.0
+2.43.0
 
